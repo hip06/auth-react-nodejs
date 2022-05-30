@@ -6,7 +6,14 @@ const sequelize = new Sequelize('auth', 'root', null, {
     host: 'localhost',
     dialect: 'mysql',
     logging: false,
-    raw: true
+    raw: true,
+    raw: true,
+    pool: {
+        max: 5,
+        min: 0,
+        acquire: 30000,
+        idle: 10000
+    }
 });
 
 export const loggerConnectionStatus = async () => {
